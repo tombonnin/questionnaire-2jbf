@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Questionnaire 2JBF — Préparation du site</title>
+<style>
+:root{--bg:#ffffff;--card:#fff;--ink:#404a4b;--muted:#778082;--accent:#66725f;--soft:#e8ece5;--line:#d9ddd8;--danger:#a4473f}
+*{box-sizing:border-box} body{margin:0;background:#ffffff;color:var(--ink);font-family:"Helvetica Neue",Arial,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:26px 18px 10px;text-align:center}.brand{font-family:"Helvetica Neue",Arial,system-ui,sans-serif;font-weight:400;font-size:clamp(22px,5vw,34px);letter-spacing:.04em}.tag{margin-top:8px;color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:400}
+main{max-width:980px;margin:auto;padding:18px 18px 50px}.card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:24px;box-shadow:0 18px 55px rgba(34,46,46,.09);overflow:hidden}
+.hero{padding:28px;border-bottom:1px solid var(--line)} h1{font-size:clamp(28px,5vw,44px);line-height:1.08;margin:0 0 10px;font-weight:400;letter-spacing:-.02em}.hero p{margin:0;line-height:1.6;color:var(--muted);max-width:780px;font-weight:300}
+.progress-meta{display:flex;justify-content:space-between;margin-top:22px;font-size:13px;color:var(--muted)}.progress{height:10px;background:#edf0eb;border-radius:99px;margin-top:8px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--accent);transition:.25s}
+form{padding:24px 28px 30px}.step{display:none}.step.active{display:block;animation:fade .2s ease}@keyframes fade{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+h2{font-size:26px;margin:0 0 6px;font-weight:400;letter-spacing:-.01em}.lead{margin:0 0 22px;color:var(--muted);font-weight:300;line-height:1.55}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.full{grid-column:1/-1}
+label.q{display:block;font-size:14px;font-weight:500;margin-bottom:7px}.hint{font-size:12px;color:var(--muted);font-weight:400;margin-top:4px;display:block}
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=url],textarea,select{width:100%;padding:13px 14px;border:1px solid #cfd5d0;border-radius:14px;background:#fff;color:var(--ink);font:inherit;font-weight:400;outline:none}
+textarea{min-height:105px;resize:vertical} input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(102,114,95,.12)}
+.choices{display:flex;flex-wrap:wrap;gap:9px}.choice input{position:absolute;opacity:0;pointer-events:none}.choice span{display:inline-flex;padding:9px 13px;border:1px solid #cfd5d0;border-radius:999px;background:white;cursor:pointer;font-size:14px}
+.choice input:checked+span{background:var(--soft);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);color:#303a32}
+.box{padding:16px;border:1px solid var(--line);background:#fafbf9;border-radius:16px}.sub{margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+.nav{display:flex;gap:12px;justify-content:space-between;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}button{border:0;border-radius:14px;padding:12px 17px;font:inherit;font-weight:500;cursor:pointer}.secondary{background:#eef0ed;color:var(--ink)}.primary{background:var(--ink);color:#fff;margin-left:auto}.submit{background:var(--accent);color:white;margin-left:auto}
+.micro{font-size:12px;color:var(--muted);margin-top:12px}.required:after{content:" *";color:var(--danger)}.conditional{display:none}.success{display:none;text-align:center;padding:46px 28px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.hero,form{padding-left:18px;padding-right:18px}.nav{position:sticky;bottom:0;background:rgba(255,255,255,.96);padding-bottom:4px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">SOCIÉTÉ 2JBF</div>
+  <div class="tag">Charpente • Ossature bois • Couverture • Ramonage • Démoussage</div>
+</header>
+
+<main>
+<div class="card">
+  <div class="hero">
+    <h1>On prépare ton futur site.</h1>
+    <p>Réponds simplement, comme si tu m’expliquais ton métier autour d’un café. Tu peux cocher rapidement, écrire quelques mots ou détailler quand c’est utile. Le questionnaire s’adapte à tes activités et sauvegarde automatiquement ta progression.</p>
+    <div class="progress-meta"><span id="stepLabel">Étape 1</span><span id="progressPct">0 %</span></div>
+    <div class="progress"><div id="progressBar"></div></div>
+  </div>
+
+  <form id="q2jbf" action="https://formsubmit.co/ajax/tombonnin@hotmail.fr" method="post">
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+    <input type="hidden" name="_subject" value="Nouvelles réponses — Questionnaire 2JBF">
+    <input type="hidden" name="_template" value="table">
+
+    <section class="step active" data-title="Ton entreprise">
+      <h2>1. Ton entreprise</h2>
+      <p class="lead">J’ai besoin de comprendre qui tu es et ce qui fait la différence de 2JBF.</p>
+      <div class="grid">
+        <div><label class="q required">Ton prénom</label><input required name="prenom" type="text"></div>
+        <div><label class="q required">Ton e-mail</label><input required name="email" type="email"></div>
+        <div><label class="q">Raison sociale exacte</label><input name="raison_sociale" type="text"></div>
+        <div><label class="q">Depuis combien de temps exerces-tu ?</label><input name="anciennete" type="text" placeholder="Ex. 12 ans"></div>
+        <div><label class="q">Combien de personnes travaillent dans l’entreprise ?</label><input name="effectif" type="number" min="1"></div>
+        <div><label class="q">Tes principales qualifications / formations</label><input name="qualifications" type="text"></div>
+        <div class="full"><label class="q">Certifications / labels</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="labels[]" value="RGE"><span>RGE</span></label>
+          <label class="choice"><input type="checkbox" name="labels[]" value="Qualibat"><span>Qualibat</span></label>
+          <label class="choice"><input type="checkbox" name="labels[]" value="Autre" data-other-target="labels_autre"><span>Autre</span></label>
+          <input id="labels_autre" name="labels_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px">
+        </div></div>
+        <div><label class="q">Assurance décennale ?</label><select name="decennale"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Responsabilité civile pro ?</label><select name="rc_pro"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div class="full"><label class="q">Qu’est-ce qui distingue 2JBF des autres artisans de la région ?</label><textarea name="difference"></textarea></div>
+        <div class="full"><label class="q">Si tu devais présenter l’entreprise en 3 phrases à un client, tu dirais quoi ?</label><textarea name="pitch"></textarea></div>
+        <div class="full"><label class="q">Les valeurs les plus importantes pour toi</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Travail soigne"><span>Travail soigné</span></label>
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Ponctualite"><span>Ponctualité</span></label>
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Proximite"><span>Proximité</span></label>
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Conseil"><span>Conseil</span></label>
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Qualite materiaux"><span>Qualité des matériaux</span></label>
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Respect du bati"><span>Respect du bâti</span></label>
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Proprete chantier"><span>Propreté des chantiers</span></label>
+        
+          <label class="choice"><input type="checkbox" name="valeurs[]" value="Autre" data-other-target="other_1"><span>Autre</span></label>
+          <input id="other_1" name="valeurs_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div class="full"><label class="q">Tu travailles surtout avec…</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="clientele[]" value="Particuliers"><span>Particuliers</span></label>
+          <label class="choice"><input type="checkbox" name="clientele[]" value="Professionnels"><span>Professionnels</span></label>
+          <label class="choice"><input type="checkbox" name="clientele[]" value="Syndics"><span>Syndics / copropriétés</span></label>
+          <label class="choice"><input type="checkbox" name="clientele[]" value="Collectivites"><span>Collectivités</span></label>
+          <label class="choice"><input type="checkbox" name="clientele[]" value="Architectes"><span>Architectes / maîtres d’œuvre</span></label>
+        
+          <label class="choice"><input type="checkbox" name="clientele[]" value="Autre" data-other-target="other_2"><span>Autre</span></label>
+          <input id="other_2" name="clientele_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div class="full"><label class="q">Tu acceptes les petits chantiers ?</label><select name="petits_chantiers"><option value="">Choisir…</option><option>Oui</option><option>Non, plutôt gros projets</option><option>Au cas par cas</option></select></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Zone géographique">
+      <h2>2. Où veux-tu travailler ?</h2>
+      <p class="lead">Ça servira autant aux textes qu’au référencement local.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Quelles villes veux-tu principalement desservir ?</label><textarea name="villes"></textarea></div>
+        <div><label class="q">Rayon habituel</label><input name="rayon_habituel" type="text" placeholder="Ex. 30 km"></div>
+        <div><label class="q">Jusqu’où vas-tu pour un chantier important ?</label><input name="rayon_max" type="text" placeholder="Ex. 80 km"></div>
+        <div class="full"><label class="q">Certaines prestations ont-elles une zone plus réduite ?</label><textarea name="zones_par_prestation" placeholder="Ex. ramonage 30 km, charpente 80 km"></textarea></div>
+        <div><label class="q">Tu veux mettre certaines villes en avant sur Google ?</label><select name="seo_local"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Je ne sais pas</option></select></div>
+        <div><label class="q">Frais de déplacement selon la distance ?</label><select name="frais_deplacement"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon prestation</option></select></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Tes activités">
+      <h2>3. Quelles activités veux-tu mettre en avant ?</h2>
+      <p class="lead">Coche ce que tu fais réellement. Les prochaines étapes s’adapteront automatiquement.</p>
+      <div class="box"><div class="choices">
+        <label class="choice"><input class="service-toggle" type="checkbox" name="services[]" value="Charpente" data-service="charpente"><span>Charpente</span></label>
+        <label class="choice"><input class="service-toggle" type="checkbox" name="services[]" value="Ossature bois" data-service="ossature"><span>Ossature bois</span></label>
+        <label class="choice"><input class="service-toggle" type="checkbox" name="services[]" value="Couverture" data-service="couverture"><span>Couverture</span></label>
+        <label class="choice"><input class="service-toggle" type="checkbox" name="services[]" value="Ramonage" data-service="ramonage"><span>Ramonage</span></label>
+        <label class="choice"><input class="service-toggle" type="checkbox" name="services[]" value="Démoussage" data-service="demoussage"><span>Démoussage</span></label>
+      
+          <label class="choice"><input type="checkbox" name="services[]" value="Autre" data-other-target="other_3"><span>Autre</span></label>
+          <input id="other_3" name="services_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+    </section>
+
+    <section class="step conditional" data-service-section="charpente" data-title="Charpente">
+      <h2>4. Charpente</h2><p class="lead">On détaille uniquement ce que tu veux vendre et montrer.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Quels travaux réalises-tu ?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Traditionnelle"><span>Traditionnelle</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Renovation"><span>Rénovation</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Construction neuve"><span>Construction neuve</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Modification"><span>Modification</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Renforcement"><span>Renforcement</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Traitement bois"><span>Traitement du bois</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Extension"><span>Extension</span></label>
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Reparation ponctuelle"><span>Réparation ponctuelle</span></label>
+        
+          <label class="choice"><input type="checkbox" name="charpente_travaux[]" value="Autre" data-other-target="other_4"><span>Autre</span></label>
+          <input id="other_4" name="charpente_travaux_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Bâtiments anciens ?</label><select name="charpente_ancien"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Bâtiments agricoles ?</label><select name="charpente_agricole"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Charpentes sur mesure ?</label><select name="charpente_sur_mesure"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Conception / dimensionnement par toi ?</label><select name="charpente_dimensionnement"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon projet</option></select></div>
+        <div class="full"><label class="q">Bois utilisés, fournisseurs / fabricants</label><textarea name="charpente_bois"></textarea></div>
+        <div class="full"><label class="q">Problèmes les plus fréquents chez tes clients</label><textarea name="charpente_problemes"></textarea></div>
+        <div class="full"><label class="q">Quels signes doivent alerter un propriétaire ?</label><textarea name="charpente_signes"></textarea></div>
+        <div><label class="q">Diagnostic avant travaux ?</label><select name="charpente_diagnostic"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Devis gratuit ?</label><select name="charpente_devis"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div class="full"><label class="q">Quels chantiers charpente veux-tu absolument montrer ?</label><textarea name="charpente_realisations"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step conditional" data-service-section="ossature" data-title="Ossature bois">
+      <h2>Ossature bois</h2><p class="lead">Quels projets veux-tu attirer demain ?</p>
+      <div class="grid">
+        <div class="full"><label class="q">Types de projets</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Maison complete"><span>Maison complète</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Extension"><span>Extension</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Surelevation"><span>Surélévation</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Garage"><span>Garage</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Carport"><span>Carport</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Abri"><span>Abri</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Terrasse couverte"><span>Terrasse couverte</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Dependance"><span>Dépendance</span></label>
+        
+          <label class="choice"><input type="checkbox" name="ossature_projets[]" value="Autre" data-other-target="other_5"><span>Autre</span></label>
+          <input id="other_5" name="ossature_projets_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div class="full"><label class="q">En plus de la structure, tu prends en charge quoi ?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="ossature_lots[]" value="Isolation"><span>Isolation</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_lots[]" value="Bardage"><span>Bardage</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_lots[]" value="Toiture"><span>Toiture</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_lots[]" value="Menuiseries"><span>Menuiseries</span></label>
+          <label class="choice"><input type="checkbox" name="ossature_lots[]" value="Interieur"><span>Intérieur</span></label>
+        
+          <label class="choice"><input type="checkbox" name="ossature_lots[]" value="Autre" data-other-target="other_6"><span>Autre</span></label>
+          <input id="other_6" name="ossature_lots_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Projets clé en main ?</label><select name="ossature_cle_en_main"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon projet</option></select></div>
+        <div><label class="q">Sur-mesure ?</label><select name="ossature_sur_mesure"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div class="full"><label class="q">Pour toi, quels sont les principaux avantages de l’ossature bois ?</label><textarea name="ossature_avantages"></textarea></div>
+        <div class="full"><label class="q">Matériaux et isolants utilisés</label><textarea name="ossature_materiaux"></textarea></div>
+        <div><label class="q">Taille habituelle des projets</label><input name="ossature_taille" type="text"></div>
+        <div><label class="q">Neuf / rénovation ?</label><select name="ossature_neuf_reno"><option value="">Choisir…</option><option>Neuf</option><option>Rénovation</option><option>Les deux</option></select></div>
+        <div><label class="q">Plans d’architecte ?</label><select name="ossature_architecte"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Aide démarches administratives ?</label><select name="ossature_admin"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Partiellement</option></select></div>
+        <div class="full"><label class="q">Quels projets réalisés seraient intéressants à montrer ?</label><textarea name="ossature_realisations"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step conditional" data-service-section="couverture" data-title="Couverture">
+      <h2>Couverture</h2><p class="lead">Matériaux, réparations, urgences : tout ce qui compte pour le client.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Types de couverture</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="couverture_types[]" value="Tuiles"><span>Tuiles</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_types[]" value="Ardoise"><span>Ardoise</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_types[]" value="Bac acier"><span>Bac acier</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_types[]" value="Zinc"><span>Zinc</span></label>
+        
+          <label class="choice"><input type="checkbox" name="couverture_types[]" value="Autre" data-other-target="other_7"><span>Autre</span></label>
+          <input id="other_7" name="couverture_types_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div class="full"><label class="q">Travaux réalisés</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Toiture neuve"><span>Toiture neuve</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Renovation complete"><span>Rénovation complète</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Reparation"><span>Réparation</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Recherche fuite"><span>Recherche de fuite</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Remplacement tuiles"><span>Remplacement de tuiles</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Etancheite"><span>Étanchéité</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Velux"><span>Velux / fenêtres de toit</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Zinguerie"><span>Zinguerie</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Gouttieres"><span>Gouttières</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Cheneaux"><span>Chéneaux</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Descentes eau"><span>Descentes d’eau</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Isolation toiture"><span>Isolation toiture</span></label>
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Sarking"><span>Sarking</span></label>
+        
+          <label class="choice"><input type="checkbox" name="couverture_travaux[]" value="Autre" data-other-target="other_8"><span>Autre</span></label>
+          <input id="other_8" name="couverture_travaux_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Urgence fuite ?</label><select name="couverture_urgence"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon disponibilité</option></select></div>
+        <div><label class="q">Bâchage / mise hors d’eau ?</label><select name="couverture_bachage"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Délai habituel d’intervention</label><input name="couverture_delai" type="text"></div>
+        <div><label class="q">Garanties proposées</label><input name="couverture_garanties" type="text"></div>
+        <div class="full"><label class="q">Matériaux / marques que tu utilises</label><textarea name="couverture_marques"></textarea></div>
+        <div class="full"><label class="q">Les problèmes de toiture que tu vois le plus souvent</label><textarea name="couverture_problemes"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step conditional" data-service-section="ramonage" data-title="Ramonage">
+      <h2>Ramonage</h2><p class="lead">Ici, le but est de pouvoir créer une offre très claire, avec éventuellement des formules.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Appareils ramonés</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="ramonage_appareils[]" value="Cheminee ouverte"><span>Cheminée ouverte</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_appareils[]" value="Insert"><span>Cheminée avec insert</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_appareils[]" value="Poele bois"><span>Poêle à bois</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_appareils[]" value="Poele granules"><span>Poêle à granulés</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_appareils[]" value="Chaudiere bois"><span>Chaudière bois</span></label>
+        
+          <label class="choice"><input type="checkbox" name="ramonage_appareils[]" value="Autre" data-other-target="other_9"><span>Autre</span></label>
+          <input id="other_9" name="ramonage_appareils_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Conduit seulement ou entretien appareil aussi ?</label><select name="ramonage_entretien"><option value="">Choisir…</option><option>Conduit seulement</option><option>Conduit + entretien appareil</option><option>Selon appareil</option></select></div>
+        <div><label class="q">Ramonage mécanique ?</label><select name="ramonage_mecanique"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Par le haut ou par le bas ?</label><select name="ramonage_sens"><option value="">Choisir…</option><option>Par le haut</option><option>Par le bas</option><option>Les deux selon cas</option></select></div>
+        <div><label class="q">Certificat / attestation ?</label><select name="ramonage_certificat"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Nettoyage de la zone inclus ?</label><select name="ramonage_nettoyage"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Contrôle visuel de l’état du conduit ?</label><select name="ramonage_controle"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Durée moyenne</label><input name="ramonage_duree" type="text" placeholder="Ex. 45 min"></div>
+        <div><label class="q">Prix standard</label><input name="ramonage_prix" type="text" placeholder="Ex. 75 € TTC"></div>
+        <div class="full"><label class="q">Le tarif varie selon quoi ?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="ramonage_variations[]" value="Cheminee poele"><span>Cheminée / poêle</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_variations[]" value="Bois granules"><span>Bois / granulés</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_variations[]" value="Longueur conduit"><span>Longueur du conduit</span></label>
+          <label class="choice"><input type="checkbox" name="ramonage_variations[]" value="Acces"><span>Difficulté d’accès</span></label>
+        
+          <label class="choice"><input type="checkbox" name="ramonage_variations[]" value="Autre" data-other-target="other_10"><span>Autre</span></label>
+          <input id="other_10" name="ramonage_variations_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Prix pour plusieurs conduits dans la même maison ?</label><select name="ramonage_multi_conduits"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Tarif groupé entre voisins ?</label><select name="ramonage_groupe"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À envisager</option></select></div>
+        <div><label class="q">Contrat annuel ?</label><select name="ramonage_contrat"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À envisager</option></select></div>
+        <div><label class="q">Rappel automatique l’année suivante ?</label><select name="ramonage_rappel"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À envisager</option></select></div>
+        <div class="full"><label class="q">Suppléments éventuels</label><textarea name="ramonage_supplements"></textarea></div>
+        <div><label class="q">Déplacement inclus ?</label><select name="ramonage_deplacement"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon distance</option></select></div>
+        <div><label class="q">Jusqu’à quelle distance ?</label><input name="ramonage_distance" type="text"></div>
+        <div><label class="q">Affichage des prix sur le site ?</label><select name="ramonage_affichage_prix"><option value="">Choisir…</option><option>Prix fixes</option><option>À partir de…</option><option>Sur devis uniquement</option></select></div>
+        <div><label class="q">Moyens de paiement</label><input name="ramonage_paiement" type="text"></div>
+        <div><label class="q">Réservation directe en ligne ?</label><select name="ramonage_reservation"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Demande de RDV seulement</option></select></div>
+        <div class="full"><label class="q">Tu veux créer plusieurs formules ?</label><textarea name="ramonage_formules" placeholder="Ex. Essentiel / Ramonage + contrôle / Entretien complet…"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step conditional" data-service-section="demoussage" data-title="Démoussage">
+      <h2>Démoussage & entretien de toiture</h2><p class="lead">Pour transformer la prestation en offre simple à comprendre.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Que comprend exactement ton démoussage ?</label><textarea name="demoussage_contenu"></textarea></div>
+        <div class="full"><label class="q">Prestations</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="demoussage_prestations[]" value="Nettoyage mecanique"><span>Nettoyage mécanique</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_prestations[]" value="Antimousse"><span>Traitement antimousse</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_prestations[]" value="Preventif"><span>Traitement préventif</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_prestations[]" value="Hydrofuge"><span>Hydrofuge</span></label>
+        
+          <label class="choice"><input type="checkbox" name="demoussage_prestations[]" value="Autre" data-other-target="other_11"><span>Autre</span></label>
+          <input id="other_11" name="demoussage_prestations_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Nettoyeur haute pression ?</label><select name="demoussage_hp"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon toiture</option></select></div>
+        <div><label class="q">Types de toiture</label><input name="demoussage_toitures" type="text"></div>
+        <div class="full"><label class="q">Comment détermines-tu le prix ?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="demoussage_prix_selon[]" value="Surface"><span>Surface</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_prix_selon[]" value="Pente"><span>Pente</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_prix_selon[]" value="Etat"><span>État</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_prix_selon[]" value="Accessibilite"><span>Accessibilité</span></label>
+        
+          <label class="choice"><input type="checkbox" name="demoussage_prix_selon[]" value="Autre" data-other-target="other_12"><span>Autre</span></label>
+          <input id="other_12" name="demoussage_prix_selon_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Prix au m² ou devis ?</label><input name="demoussage_prix" type="text"></div>
+        <div><label class="q">Durée d’efficacité moyenne</label><input name="demoussage_duree_effet" type="text"></div>
+        <div><label class="q">Fréquence conseillée</label><input name="demoussage_frequence" type="text"></div>
+        <div><label class="q">Contrat périodique ?</label><select name="demoussage_contrat"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À envisager</option></select></div>
+        <div class="full"><label class="q">Tu nettoies aussi…</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="demoussage_plus[]" value="Gouttieres"><span>Gouttières</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_plus[]" value="Cheneaux"><span>Chéneaux</span></label>
+          <label class="choice"><input type="checkbox" name="demoussage_plus[]" value="Facades"><span>Façades</span></label>
+        
+          <label class="choice"><input type="checkbox" name="demoussage_plus[]" value="Autre" data-other-target="other_13"><span>Autre</span></label>
+          <input id="other_13" name="demoussage_plus_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Pack démoussage + gouttières ?</label><select name="demoussage_pack"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À envisager</option></select></div>
+        <div><label class="q">Plusieurs formules ?</label><select name="demoussage_formules"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À définir ensemble</option></select></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Déroulement d’un chantier">
+      <h2>Comment se passe un chantier chez toi ?</h2><p class="lead">Ça servira à rassurer les clients et à expliquer concrètement ta façon de travailler.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Que se passe-t-il quand un client t’appelle ?</label><textarea name="chantier_appel"></textarea></div>
+        <div><label class="q">Visite systématique sur place ?</label><select name="chantier_visite"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon projet</option></select></div>
+        <div><label class="q">Devis gratuit ?</label><select name="chantier_devis"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon intervention</option></select></div>
+        <div><label class="q">Délai moyen pour envoyer un devis</label><input name="chantier_delai_devis" type="text"></div>
+        <div><label class="q">Acompte demandé ?</label><select name="chantier_acompte"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon chantier</option></select></div>
+        <div class="full"><label class="q">Une fois le devis accepté, comment planifies-tu les travaux ?</label><textarea name="chantier_planification"></textarea></div>
+        <div class="full"><label class="q">Décris un chantier type</label><textarea name="chantier_type"></textarea></div>
+        <div><label class="q">Protection des abords ?</label><select name="chantier_protection"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Nettoyage systématique en fin de chantier ?</label><select name="chantier_nettoyage"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Évacuation des déchets ?</label><select name="chantier_dechets"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon chantier</option></select></div>
+        <div><label class="q">Réception avec le client ?</label><select name="chantier_reception"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div class="full"><label class="q">Tu envoies des photos avant / pendant / après ?</label><select name="chantier_photos"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Selon chantier</option></select></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Réalisations & images">
+      <h2>Réalisations, photos et vidéo</h2><p class="lead">Je veux récupérer de quoi montrer ton travail, pas seulement en parler.</p>
+      <div class="grid">
+        <div><label class="q">Combien de chantiers peux-tu photographier ?</label><input name="nb_chantiers_photo" type="text"></div>
+        <div><label class="q">Tu as déjà des photos de réalisations ?</label><select name="photos_existantes"><option value="">Choisir…</option><option>Oui, beaucoup</option><option>Oui, quelques-unes</option><option>Non</option></select></div>
+        <div><label class="q">Avant / pendant / après ?</label><select name="photos_avant_apres"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Quelques chantiers</option></select></div>
+        <div><label class="q">Accord des propriétaires pour publier ?</label><select name="accord_photos"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À demander</option></select></div>
+        <div class="full"><label class="q">Tes 5 plus beaux chantiers</label><textarea name="top5_chantiers" placeholder="Lieu, type de travaux, problème, solution, matériaux, durée…"></textarea></div>
+        <div class="full"><label class="q">Tes 3 chantiers les plus impressionnants techniquement</label><textarea name="top3_technique"></textarea></div>
+        <div><label class="q">Drone envisageable ?</label><select name="drone_possible"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Pourquoi pas</option></select></div>
+        <div><label class="q">Vidéo de présentation de l’entreprise ?</label><select name="video_presentation"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Pourquoi pas</option></select></div>
+        <div><label class="q">Tu accepterais d’expliquer un chantier face caméra pendant 30 secondes ?</label><select name="face_camera"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Oui, mais court</option></select></div>
+        <div class="full"><label class="q">Quels chantiers seraient les plus intéressants à filmer au drone ?</label><textarea name="drone_chantiers"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Confiance & preuves">
+      <h2>Avis clients et éléments de confiance</h2><p class="lead">Ce sont les preuves qui feront la différence sur le site.</p>
+      <div class="grid">
+        <div><label class="q">Tu as des avis Google ?</label><select name="avis_google"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Combien environ ?</label><input name="nb_avis" type="number" min="0"></div>
+        <div><label class="q">On peut les afficher sur le site ?</label><select name="afficher_avis"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Des clients accepteraient un témoignage avec prénom + commune + chantier ?</label><select name="temoignages"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À demander</option></select></div>
+        <div><label class="q">Nombre de chantiers réalisés environ</label><input name="nb_chantiers" type="text"></div>
+        <div><label class="q">Années d’expérience cumulées</label><input name="experience_cumulee" type="text"></div>
+        <div class="full"><label class="q">Assurances / garanties à mettre en avant</label><textarea name="assurances_garanties"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Ton du site">
+      <h2>Quelle impression doit donner le site ?</h2><p class="lead">Choisis ce qui te ressemble le plus.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Le site doit paraître…</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Artisan local"><span>Artisan local & accessible</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Technique"><span>Très technique</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Premium"><span>Premium</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Familial"><span>Familial</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Moderne"><span>Moderne & dynamique</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Tradition"><span>Tradition / savoir-faire</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Eco"><span>Éco-construction / bois</span></label>
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Rapport qualite prix"><span>Bon rapport qualité-prix</span></label>
+        
+          <label class="choice"><input type="checkbox" name="positionnement[]" value="Autre" data-other-target="other_14"><span>Autre</span></label>
+          <input id="other_14" name="positionnement_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Tutoiement ou vouvoiement sur le site ?</label><select name="adresse_client"><option value="">Choisir…</option><option>Vouvoiement</option><option>Tutoiement</option></select></div>
+        <div><label class="q">Ton général</label><select name="ton_site"><option value="">Choisir…</option><option>Simple et direct</option><option>Chaleureux</option><option>Technique</option><option>Haut de gamme</option><option>Institutionnel</option></select></div>
+        <div><label class="q">Vocabulaire métier</label><select name="vocabulaire"><option value="">Choisir…</option><option>Très vulgarisé</option><option>Équilibré</option><option>Assez technique</option></select></div>
+        <div class="full"><label class="q">Des formulations que tu détestes ?</label><textarea name="formulations_detestees"></textarea></div>
+        <div class="full"><label class="q">Des entreprises / sites dont tu aimes le style ?</label><textarea name="sites_aimes"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Messages commerciaux">
+      <h2>Ce que tu dirais vraiment à un client</h2><p class="lead">C’est cette matière qui évitera les phrases marketing creuses.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Pourquoi un client devrait-il choisir 2JBF plutôt qu’un concurrent ?</label><textarea name="pourquoi_2jbf"></textarea></div>
+        <div class="full"><label class="q">Les 3 remarques positives que tes clients font le plus souvent</label><textarea name="retours_positifs"></textarea></div>
+        <div class="full"><label class="q">Les 3 inquiétudes les plus fréquentes avant de signer</label><textarea name="inquietudes"></textarea></div>
+        <div class="full"><label class="q">Que réponds-tu à “Votre devis est trop cher” ?</label><textarea name="reponse_prix"></textarea></div>
+        <div class="full"><label class="q">Quels travaux refuses-tu ?</label><textarea name="travaux_refuses"></textarea></div>
+        <div class="full"><label class="q">Sur quoi refuses-tu de faire des économies ?</label><textarea name="pas_economies"></textarea></div>
+        <div class="full"><label class="q">Quelle promesse peux-tu réellement tenir sur tous les chantiers ?</label><textarea name="promesse"></textarea></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Contact & rendez-vous">
+      <h2>Contact et prise de rendez-vous</h2><p class="lead">Pour que le futur site transforme les visites en demandes concrètes.</p>
+      <div class="grid">
+        <div><label class="q">Téléphone pro</label><input name="telephone" type="tel"></div>
+        <div><label class="q">E-mail pro</label><input name="email_pro" type="email"></div>
+        <div><label class="q">Adresse de l’entreprise</label><input name="adresse" type="text"></div>
+        <div><label class="q">Horaires d’appel</label><input name="horaires" type="text"></div>
+        <div><label class="q">Afficher l’adresse publiquement ?</label><select name="afficher_adresse"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div class="full"><label class="q">Comment veux-tu être contacté ?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="contact_canaux[]" value="Telephone"><span>Téléphone</span></label>
+          <label class="choice"><input type="checkbox" name="contact_canaux[]" value="Email"><span>E-mail</span></label>
+          <label class="choice"><input type="checkbox" name="contact_canaux[]" value="SMS"><span>SMS</span></label>
+          <label class="choice"><input type="checkbox" name="contact_canaux[]" value="WhatsApp"><span>WhatsApp</span></label>
+          <label class="choice"><input type="checkbox" name="contact_canaux[]" value="Formulaire"><span>Formulaire</span></label>
+        
+          <label class="choice"><input type="checkbox" name="contact_canaux[]" value="Autre" data-other-target="other_15"><span>Autre</span></label>
+          <input id="other_15" name="contact_canaux_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Réservation directe en ligne ?</label><select name="reservation_directe"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Seulement pour le ramonage</option></select></div>
+        <div><label class="q">Le client peut choisir un créneau ?</label><select name="choix_creneau"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+        <div><label class="q">Durée d’un créneau type</label><input name="duree_creneau" type="text"></div>
+        <div><label class="q">Temps de déplacement à prévoir entre deux clients</label><input name="temps_deplacement" type="text"></div>
+        <div><label class="q">Paiement en ligne ?</label><select name="paiement_en_ligne"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>Plus tard</option></select></div>
+        <div><label class="q">Tu préfères une simple demande de RDV à confirmer ?</label><select name="demande_rdv"><option value="">Choisir…</option><option>Oui</option><option>Non</option></select></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="FAQ & réseaux">
+      <h2>FAQ et présence en ligne</h2><p class="lead">Les questions récurrentes seront réutilisées pour le site et le référencement.</p>
+      <div class="grid">
+        <div class="full"><label class="q">Quelles sont les 15 questions que tes clients te posent tout le temps ?</label><textarea name="faq" placeholder="Une question par ligne, même si tu n’en as pas 15."></textarea></div>
+        <div class="full"><label class="q">Tu as déjà quels comptes ?</label><div class="choices">
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="Facebook"><span>Facebook</span></label>
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="Instagram"><span>Instagram</span></label>
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="LinkedIn"><span>LinkedIn</span></label>
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="TikTok"><span>TikTok</span></label>
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="YouTube"><span>YouTube</span></label>
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="Google Business Profile"><span>Google Business Profile</span></label>
+        
+          <label class="choice"><input type="checkbox" name="reseaux[]" value="Autre" data-other-target="other_16"><span>Autre</span></label>
+          <input id="other_16" name="reseaux_autre" type="text" placeholder="Autre : précise ici…" style="display:none;max-width:320px;margin-top:4px"></div></div>
+        <div><label class="q">Tu veux publier régulièrement tes chantiers ?</label><select name="publier_chantiers"><option value="">Choisir…</option><option>Oui</option><option>Non</option><option>À voir</option></select></div>
+      </div>
+    </section>
+
+    <section class="step" data-title="Infos administratives">
+      <h2>Dernière étape : les infos administratives</h2><p class="lead">Ça servira notamment aux mentions légales et aux éléments de réassurance.</p>
+      <div class="grid">
+        <div><label class="q">Statut juridique</label><input name="statut_juridique" type="text"></div>
+        <div><label class="q">Capital social</label><input name="capital_social" type="text"></div>
+        <div><label class="q">Adresse du siège</label><input name="siege" type="text"></div>
+        <div><label class="q">SIREN / SIRET</label><input name="siret" type="text"></div>
+        <div><label class="q">RCS / RM</label><input name="rcs_rm" type="text"></div>
+        <div><label class="q">TVA intracommunautaire</label><input name="tva" type="text"></div>
+        <div><label class="q">Assureur RC / décennale</label><input name="assureur" type="text"></div>
+        <div><label class="q">Nombre de clients environ</label><input name="nb_clients" type="text"></div>
+        <div><label class="q">Nombre de communes desservies environ</label><input name="nb_communes" type="text"></div>
+        <div><label class="q">Note Google actuelle</label><input name="note_google" type="text" placeholder="Ex. 4,9/5"></div>
+        <div><label class="q">Années de garantie selon prestations</label><input name="garanties_ans" type="text"></div>
+        <div class="full"><label class="q">Autre chose que je dois absolument savoir avant de rédiger le site ?</label><textarea name="autre"></textarea></div>
+      </div>
+    </section>
+
+    <div class="nav">
+      <button type="button" class="secondary" id="prev">← Précédent</button>
+      <button type="button" class="primary" id="next">Suivant →</button>
+      <button type="submit" class="submit" id="send" style="display:none">Envoyer mes réponses</button>
+    </div>
+    <div class="micro">Ta progression est sauvegardée automatiquement sur cet appareil.</div>
+  </form>
+
+  <div class="success" id="success">
+    <h2>Merci, c’est envoyé.</h2>
+    <p>J’ai maintenant tout ce qu’il faut pour préparer le contenu de ton futur site.</p>
+  </div>
+</div>
+</main>
+
+<script>
+(() => {
+ const form=document.getElementById('q2jbf'), all=[...document.querySelectorAll('.step')], toggles=[...document.querySelectorAll('.service-toggle')];
+ const prev=document.getElementById('prev'), next=document.getElementById('next'), send=document.getElementById('send');
+ const bar=document.getElementById('progressBar'), pct=document.getElementById('progressPct'), lab=document.getElementById('stepLabel');
+ const key='2jbf-questionnaire-v2'; let i=0;
+ const selected=()=>new Set(toggles.filter(x=>x.checked).map(x=>x.dataset.service));
+ const visible=()=>{const s=selected(); return all.filter(x=>!x.classList.contains('conditional')||s.has(x.dataset.serviceSection));};
+ function render(){const v=visible(); if(i>v.length-1)i=v.length-1; all.forEach(x=>x.classList.remove('active')); v[i].classList.add('active'); const p=Math.round((i+1)/v.length*100);bar.style.width=p+'%';pct.textContent=p+' %';lab.textContent=`Étape ${i+1} / ${v.length} — ${v[i].dataset.title||''}`;prev.style.visibility=i===0?'hidden':'visible';next.style.display=i===v.length-1?'none':'inline-block';send.style.display=i===v.length-1?'inline-block':'none';window.scrollTo({top:0,behavior:'smooth'});}
+ function save(){const d={};[...form.elements].forEach(el=>{if(!el.name||el.name==='_honey')return;if(el.type==='checkbox'){if(!d[el.name])d[el.name]=[];if(el.checked)d[el.name].push(el.value)}else if(el.type==='radio'){if(el.checked)d[el.name]=el.value}else d[el.name]=el.value});localStorage.setItem(key,JSON.stringify(d));}
+ function restore(){try{const d=JSON.parse(localStorage.getItem(key)||'{}');[...form.elements].forEach(el=>{if(!el.name||!(el.name in d))return;if(el.type==='checkbox')el.checked=(d[el.name]||[]).includes(el.value);else if(el.type==='radio')el.checked=d[el.name]===el.value;else el.value=d[el.name]??''})}catch(e){}}
+ function valid(){const s=visible()[i];for(const el of [...s.querySelectorAll('[required]')]){if(!el.checkValidity()){el.reportValidity();return false}} if(s.dataset.title==='Tes activités'&&selected().size===0){alert('Coche au moins une activité.');return false} return true;}
+ toggles.forEach(t=>t.addEventListener('change',()=>{save();render()}));form.addEventListener('input',save);form.addEventListener('change',save);
+ next.onclick=()=>{if(valid()){i++;render()}};prev.onclick=()=>{i=Math.max(0,i-1);render()};
+ form.addEventListener('submit',async e=>{e.preventDefault();if(!valid())return;send.disabled=true;send.textContent='Envoi…';try{const r=await fetch(form.action,{method:'POST',body:new FormData(form)});const j=await r.json();if(!r.ok||!j.ok)throw new Error();localStorage.removeItem(key);form.style.display='none';document.querySelector('.hero').style.display='none';document.getElementById('success').style.display='block'}catch(e){alert("L’envoi a échoué. Vérifie ta connexion puis réessaie. Lors du tout premier test, pense aussi à valider l’e-mail d’activation envoyé par FormSubmit.");send.disabled=false;send.textContent='Envoyer mes réponses'}});
+
+ document.querySelectorAll('input[type="checkbox"][data-other-target]').forEach(cb=>{
+   const target=document.getElementById(cb.dataset.otherTarget);
+   const sync=()=>{
+     if(!target)return;
+     target.style.display=cb.checked?'block':'none';
+     if(!cb.checked) target.value='';
+   };
+   cb.addEventListener('change',()=>{sync();save();});
+   sync();
+ });
+
+ restore();render();
+})();
+</script>
+</body>
+</html>
