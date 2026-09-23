@@ -38,10 +38,8 @@ textarea{min-height:105px;resize:vertical} input:focus,textarea:focus,select:foc
 <div class="progress-meta"><span id="stepLabel">Étape 1</span><span id="progressPct">0 %</span></div>
 <div class="progress"><div id="progressBar"></div></div>
 </div>
-<form action="https://formsubmit.co/tombonnin@hotmail.fr" id="q2jbf" method="POST"><input name="_next" type="hidden" value="https://tombonnin.github.io/merci.html"/><input name="_url" type="hidden" value="https://tombonnin.github.io/"/>
+<form action="https://formspree.io/f/xdekzlov" id="q2jbf" method="POST">
 <input aria-hidden="true" autocomplete="off" name="_honey" style="position:absolute;left:-9999px" tabindex="-1" type="text"/>
-<input name="_subject" type="hidden" value="Nouvelles réponses — Questionnaire 2JBF"/>
-<input name="_template" type="hidden" value="table"/>
 <section class="step active" data-title="Ton entreprise">
 <h2>1. Ton entreprise</h2>
 <p class="lead">J’ai besoin de comprendre qui tu es et ce qui fait la différence de 2JBF.</p>
@@ -415,8 +413,8 @@ textarea{min-height:105px;resize:vertical} input:focus,textarea:focus,select:foc
 <div class="micro">Ta progression est sauvegardée automatiquement sur cet appareil.</div>
 </form>
 <div class="success" id="success">
-<h2>Merci, c’est envoyé.</h2>
-<p>J’ai bien reçu tes réponses. Merci — j’ai maintenant tout ce qu’il faut pour préparer le contenu de ton futur site.</p>
+<h2>Merci, tes réponses sont enregistrées.</h2>
+<p>La soumission a bien été acceptée. J’ai maintenant tout ce qu’il faut pour préparer le contenu du futur site 2JBF.</p>
 </div>
 </div>
 </main>
@@ -438,57 +436,74 @@ textarea{min-height:105px;resize:vertical} input:focus,textarea:focus,select:foc
 const prettyLabels = {"prenom": "Ton entreprise — Ton prénom", "email": "Ton entreprise — Ton e-mail", "raison_sociale": "Ton entreprise — Raison sociale exacte", "anciennete": "Ton entreprise — Depuis combien de temps exerces-tu ?", "effectif": "Ton entreprise — Combien de personnes travaillent dans l’entreprise ?", "qualifications": "Ton entreprise — Tes principales qualifications / formations", "labels[]": "Ton entreprise — Certifications / labels", "labels_autre": "Ton entreprise — Certifications / labels — autre", "decennale": "Ton entreprise — Assurance décennale ?", "rc_pro": "Ton entreprise — Responsabilité civile pro ?", "difference": "Ton entreprise — Qu’est-ce qui distingue 2JBF des autres artisans de la région ?", "pitch": "Ton entreprise — Si tu devais présenter l’entreprise en 3 phrases à un client, tu dirais quoi ?", "valeurs[]": "Ton entreprise — Les valeurs les plus importantes pour toi", "valeurs_autre": "Ton entreprise — Valeurs — autre", "clientele[]": "Ton entreprise — Tu travailles surtout avec…", "clientele_autre": "Ton entreprise — Clientèle — autre", "petits_chantiers": "Ton entreprise — Tu acceptes les petits chantiers ?", "villes": "Zone géographique — Quelles villes veux-tu principalement desservir ?", "rayon_habituel": "Zone géographique — Rayon habituel", "rayon_max": "Zone géographique — Jusqu’où vas-tu pour un chantier important ?", "zones_par_prestation": "Zone géographique — Certaines prestations ont-elles une zone plus réduite ?", "seo_local": "Zone géographique — Tu veux mettre certaines villes en avant sur Google ?", "frais_deplacement": "Zone géographique — Frais de déplacement selon la distance ?", "charpente_travaux[]": "Charpente — Quels travaux réalises-tu ?", "charpente_travaux_autre": "Charpente — Quels travaux réalises-tu ?", "charpente_ancien": "Charpente — Bâtiments anciens ?", "charpente_agricole": "Charpente — Bâtiments agricoles ?", "charpente_sur_mesure": "Charpente — Charpentes sur mesure ?", "charpente_dimensionnement": "Charpente — Conception / dimensionnement par toi ?", "charpente_bois": "Charpente — Bois utilisés, fournisseurs / fabricants", "charpente_problemes": "Charpente — Problèmes les plus fréquents chez tes clients", "charpente_signes": "Charpente — Quels signes doivent alerter un propriétaire ?", "charpente_diagnostic": "Charpente — Diagnostic avant travaux ?", "charpente_devis": "Charpente — Devis gratuit ?", "charpente_realisations": "Charpente — Quels chantiers charpente veux-tu absolument montrer ?", "ossature_projets[]": "Ossature bois — Types de projets", "ossature_projets_autre": "Ossature bois — Types de projets", "ossature_lots[]": "Ossature bois — En plus de la structure, tu prends en charge quoi ?", "ossature_lots_autre": "Ossature bois — En plus de la structure, tu prends en charge quoi ?", "ossature_cle_en_main": "Ossature bois — Projets clé en main ?", "ossature_sur_mesure": "Ossature bois — Sur-mesure ?", "ossature_avantages": "Ossature bois — Pour toi, quels sont les principaux avantages de l’ossature bois ?", "ossature_materiaux": "Ossature bois — Matériaux et isolants utilisés", "ossature_taille": "Ossature bois — Taille habituelle des projets", "ossature_neuf_reno": "Ossature bois — Neuf / rénovation ?", "ossature_architecte": "Ossature bois — Plans d’architecte ?", "ossature_admin": "Ossature bois — Aide démarches administratives ?", "ossature_realisations": "Ossature bois — Quels projets réalisés seraient intéressants à montrer ?", "couverture_types[]": "Couverture — Types de couverture", "couverture_types_autre": "Couverture — Types de couverture", "couverture_travaux[]": "Couverture — Travaux réalisés", "couverture_travaux_autre": "Couverture — Travaux réalisés", "couverture_urgence": "Couverture — Urgence fuite ?", "couverture_bachage": "Couverture — Bâchage / mise hors d’eau ?", "couverture_delai": "Couverture — Délai habituel d’intervention", "couverture_garanties": "Couverture — Garanties proposées", "couverture_marques": "Couverture — Matériaux / marques que tu utilises", "couverture_problemes": "Couverture — Les problèmes de toiture que tu vois le plus souvent", "ramonage_appareils[]": "Ramonage — Appareils ramonés", "ramonage_appareils_autre": "Ramonage — Appareils ramonés", "ramonage_entretien": "Ramonage — Conduit seulement ou entretien appareil aussi ?", "ramonage_mecanique": "Ramonage — Ramonage mécanique ?", "ramonage_sens": "Ramonage — Par le haut ou par le bas ?", "ramonage_certificat": "Ramonage — Certificat / attestation ?", "ramonage_nettoyage": "Ramonage — Nettoyage de la zone inclus ?", "ramonage_controle": "Ramonage — Contrôle visuel de l’état du conduit ?", "ramonage_duree": "Ramonage — Durée moyenne", "ramonage_prix": "Ramonage — Prix standard", "ramonage_variations[]": "Ramonage — Le tarif varie selon quoi ?", "ramonage_variations_autre": "Ramonage — Le tarif varie selon quoi ?", "ramonage_multi_conduits": "Ramonage — Prix pour plusieurs conduits dans la même maison ?", "ramonage_groupe": "Ramonage — Tarif groupé entre voisins ?", "ramonage_contrat": "Ramonage — Contrat annuel ?", "ramonage_rappel": "Ramonage — Rappel automatique l’année suivante ?", "ramonage_supplements": "Ramonage — Suppléments éventuels", "ramonage_deplacement": "Ramonage — Déplacement inclus ?", "ramonage_distance": "Ramonage — Jusqu’à quelle distance ?", "ramonage_affichage_prix": "Ramonage — Affichage des prix sur le site ?", "ramonage_paiement": "Ramonage — Moyens de paiement", "ramonage_reservation": "Ramonage — Réservation directe en ligne ?", "ramonage_formules": "Ramonage — Tu veux créer plusieurs formules ?", "demoussage_contenu": "Démoussage — Que comprend exactement ton démoussage ?", "demoussage_prestations[]": "Démoussage — Prestations", "demoussage_prestations_autre": "Démoussage — Prestations", "demoussage_hp": "Démoussage — Nettoyeur haute pression ?", "demoussage_toitures": "Démoussage — Types de toiture", "demoussage_prix_selon[]": "Démoussage — Comment détermines-tu le prix ?", "demoussage_prix_selon_autre": "Démoussage — Comment détermines-tu le prix ?", "demoussage_prix": "Démoussage — Prix au m² ou devis ?", "demoussage_duree_effet": "Démoussage — Durée d’efficacité moyenne", "demoussage_frequence": "Démoussage — Fréquence conseillée", "demoussage_contrat": "Démoussage — Contrat périodique ?", "demoussage_plus[]": "Démoussage — Tu nettoies aussi…", "demoussage_plus_autre": "Démoussage — Tu nettoies aussi…", "demoussage_pack": "Démoussage — Pack démoussage + gouttières ?", "demoussage_formules": "Démoussage — Plusieurs formules ?", "chantier_appel": "Déroulement d’un chantier — Que se passe-t-il quand un client t’appelle ?", "chantier_visite": "Déroulement d’un chantier — Visite systématique sur place ?", "chantier_devis": "Déroulement d’un chantier — Devis gratuit ?", "chantier_delai_devis": "Déroulement d’un chantier — Délai moyen pour envoyer un devis", "chantier_acompte": "Déroulement d’un chantier — Acompte demandé ?", "chantier_planification": "Déroulement d’un chantier — Une fois le devis accepté, comment planifies-tu les travaux ?", "chantier_type": "Déroulement d’un chantier — Décris un chantier type", "chantier_protection": "Déroulement d’un chantier — Protection des abords ?", "chantier_nettoyage": "Déroulement d’un chantier — Nettoyage systématique en fin de chantier ?", "chantier_dechets": "Déroulement d’un chantier — Évacuation des déchets ?", "chantier_reception": "Déroulement d’un chantier — Réception avec le client ?", "chantier_photos": "Déroulement d’un chantier — Tu envoies des photos avant / pendant / après ?", "nb_chantiers_photo": "Réalisations & images — Combien de chantiers peux-tu photographier ?", "photos_existantes": "Réalisations & images — Tu as déjà des photos de réalisations ?", "photos_avant_apres": "Réalisations & images — Avant / pendant / après ?", "accord_photos": "Réalisations & images — Accord des propriétaires pour publier ?", "top5_chantiers": "Réalisations & images — Tes 5 plus beaux chantiers", "top3_technique": "Réalisations & images — Tes 3 chantiers les plus impressionnants techniquement", "drone_possible": "Réalisations & images — Drone envisageable ?", "video_presentation": "Réalisations & images — Vidéo de présentation de l’entreprise ?", "face_camera": "Réalisations & images — Tu accepterais d’expliquer un chantier face caméra pendant 30 secondes ?", "drone_chantiers": "Réalisations & images — Quels chantiers seraient les plus intéressants à filmer au drone ?", "avis_google": "Confiance & preuves — Tu as des avis Google ?", "nb_avis": "Confiance & preuves — Combien environ ?", "afficher_avis": "Confiance & preuves — On peut les afficher sur le site ?", "temoignages": "Confiance & preuves — Des clients accepteraient un témoignage avec prénom + commune + chantier ?", "nb_chantiers": "Confiance & preuves — Nombre de chantiers réalisés environ", "experience_cumulee": "Confiance & preuves — Années d’expérience cumulées", "assurances_garanties": "Confiance & preuves — Assurances / garanties à mettre en avant", "positionnement[]": "Ton du site — Le site doit paraître…", "positionnement_autre": "Ton du site — Le site doit paraître…", "adresse_client": "Ton du site — Tutoiement ou vouvoiement sur le site ?", "ton_site": "Ton du site — Ton général", "vocabulaire": "Ton du site — Vocabulaire métier", "formulations_detestees": "Ton du site — Des formulations que tu détestes ?", "sites_aimes": "Ton du site — Des entreprises / sites dont tu aimes le style ?", "pourquoi_2jbf": "Messages commerciaux — Pourquoi un client devrait-il choisir 2JBF plutôt qu’un concurrent ?", "retours_positifs": "Messages commerciaux — Les 3 remarques positives que tes clients font le plus souvent", "inquietudes": "Messages commerciaux — Les 3 inquiétudes les plus fréquentes avant de signer", "reponse_prix": "Messages commerciaux — Que réponds-tu à “Votre devis est trop cher” ?", "travaux_refuses": "Messages commerciaux — Quels travaux refuses-tu ?", "pas_economies": "Messages commerciaux — Sur quoi refuses-tu de faire des économies ?", "promesse": "Messages commerciaux — Quelle promesse peux-tu réellement tenir sur tous les chantiers ?", "telephone": "Contact & rendez-vous — Téléphone pro", "email_pro": "Contact & rendez-vous — E-mail pro", "adresse": "Contact & rendez-vous — Adresse de l’entreprise", "horaires": "Contact & rendez-vous — Horaires d’appel", "afficher_adresse": "Contact & rendez-vous — Afficher l’adresse publiquement ?", "contact_canaux[]": "Contact & rendez-vous — Comment veux-tu être contacté ?", "contact_canaux_autre": "Contact & rendez-vous — Comment veux-tu être contacté ?", "reservation_directe": "Contact & rendez-vous — Réservation directe en ligne ?", "choix_creneau": "Contact & rendez-vous — Le client peut choisir un créneau ?", "duree_creneau": "Contact & rendez-vous — Durée d’un créneau type", "temps_deplacement": "Contact & rendez-vous — Temps de déplacement à prévoir entre deux clients", "paiement_en_ligne": "Contact & rendez-vous — Paiement en ligne ?", "demande_rdv": "Contact & rendez-vous — Tu préfères une simple demande de RDV à confirmer ?", "faq": "FAQ & réseaux — Quelles sont les 15 questions que tes clients te posent tout le temps ?", "reseaux[]": "FAQ & réseaux — Tu as déjà quels comptes ?", "reseaux_autre": "FAQ & réseaux — Tu as déjà quels comptes ?", "publier_chantiers": "FAQ & réseaux — Tu veux publier régulièrement tes chantiers ?", "statut_juridique": "Infos administratives — Statut juridique", "capital_social": "Infos administratives — Capital social", "siege": "Infos administratives — Adresse du siège", "siret": "Infos administratives — SIREN / SIRET", "rcs_rm": "Infos administratives — RCS / RM", "tva": "Infos administratives — TVA intracommunautaire", "assureur": "Infos administratives — Assureur RC / décennale", "nb_clients": "Infos administratives — Nombre de clients environ", "nb_communes": "Infos administratives — Nombre de communes desservies environ", "note_google": "Infos administratives — Note Google actuelle", "garanties_ans": "Infos administratives — Années de garantie selon prestations", "autre": "Infos administratives — Autre chose que je dois absolument savoir avant de rédiger le site ?", "services[]": "Tes activités — Frais de déplacement selon la distance ?", "services_autre": "Tes activités — Frais de déplacement selon la distance ?"};
 
 
-form.addEventListener('submit', e => {
-  if (!valid()) {
-    e.preventDefault();
-    return;
-  }
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  if (!valid()) return;
 
   send.disabled = true;
   send.textContent = 'Envoi…';
 
-  const source = new FormData(form);
-  const grouped = {};
+  try {
+    const source = new FormData(form);
+    const outgoing = new FormData();
 
-  for (const [keyName, rawValue] of source.entries()) {
-    if (keyName === '_honey' || keyName === 'website' || keyName.startsWith('_')) continue;
-    const value = String(rawValue).trim();
-    if (!value) continue;
-    (grouped[keyName] ||= []).push(value);
-  }
-
-  form.querySelectorAll('input[data-generated-readable="1"]').forEach(el => el.remove());
-
-  [...form.elements].forEach(el => {
-    if (!el.name || el.name.startsWith('_')) return;
-    el.disabled = true;
-  });
-
-  for (const [keyName, values] of Object.entries(grouped)) {
-    const readable = prettyLabels[keyName] || keyName.replaceAll('_', ' ');
-    let cleaned = values.slice();
-
-    const base = keyName.endsWith('[]') ? keyName.slice(0, -2) : keyName;
-    const otherKey = base + '_autre';
-    if (cleaned.includes('Autre') && grouped[otherKey]) {
-      cleaned = cleaned.filter(v => v !== 'Autre');
+    const grouped = {};
+    for (const [keyName, rawValue] of source.entries()) {
+      if (keyName === '_honey' || keyName === 'website' || keyName.startsWith('_')) continue;
+      const value = String(rawValue).trim();
+      if (!value) continue;
+      (grouped[keyName] ||= []).push(value);
     }
 
-    const finalValue = cleaned.join(', ').trim();
-    if (!finalValue) continue;
+    for (const [keyName, values] of Object.entries(grouped)) {
+      const readable = prettyLabels[keyName] || keyName.replaceAll('_', ' ');
+      let cleaned = values.slice();
 
-    const hidden = document.createElement('input');
-    hidden.type = 'hidden';
-    hidden.name = readable;
-    hidden.value = finalValue;
-    hidden.dataset.generatedReadable = '1';
-    form.appendChild(hidden);
+      const base = keyName.endsWith('[]') ? keyName.slice(0, -2) : keyName;
+      const otherKey = base + '_autre';
+      if (cleaned.includes('Autre') && grouped[otherKey]) {
+        cleaned = cleaned.filter(v => v !== 'Autre');
+      }
+
+      const finalValue = cleaned.join(', ').trim();
+      if (finalValue) outgoing.append(readable, finalValue);
+    }
+
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: outgoing,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      const message =
+        result?.errors?.map?.(e => e.message).join(' ') ||
+        result?.error ||
+        'La soumission n’a pas été acceptée.';
+      throw new Error(message);
+    }
+
+    localStorage.removeItem(key);
+    form.style.display = 'none';
+    document.querySelector('.hero').style.display = 'none';
+    document.getElementById('success').style.display = 'block';
+
+  } catch (err) {
+    console.error(err);
+    alert("L’envoi a échoué. Tes réponses n’ont pas été confirmées par le serveur. Réessaie dans quelques instants.");
+    send.disabled = false;
+    send.textContent = 'Envoyer mes réponses';
   }
-
-  // Envoi HTML standard vers FormSubmit : pas d'AJAX, donc pas de faux échec CORS.
 });
 
 restore();render();
+
 
 
 })();
